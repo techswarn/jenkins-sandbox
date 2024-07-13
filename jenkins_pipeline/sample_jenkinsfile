@@ -3,12 +3,13 @@ pipeline {
 
     environment {
         // Define environment variables here
-        MY_ENV_VAR = 'Custom Value'
+        RELEASE = '1.0.0'
     }
 
     stages {
         stage('Checkout') {
             steps {
+
                 script {
                     // Clone the Git repository's master branch
                     def gitRepoUrl = 'https://github.com/techswarn/titan.git'
@@ -23,11 +24,16 @@ pipeline {
         }
 
         stage('Build') {
+            agent any
+            environment {
+                // Define environment variables here
+                LOG_LEVEL='INFO'
+            }
             steps {
                 // Build your application here (e.g., compile, package, etc.)
                 sh '''
                 ls
-                echo "In Build Step"
+                echo "Running Build ${RELEASE}"
                 '''
             }
         }
@@ -42,7 +48,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                sh 'echo "Value of ENV Varaible is "$MY_ENV_VAR""'
+                sh 'echo "Running deploy for version ${RELEASE}"'
             }
         }
     }
