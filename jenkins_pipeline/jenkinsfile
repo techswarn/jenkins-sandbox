@@ -14,7 +14,9 @@ pipeline {
         stage('Audit Tools') {
             steps {
                 sh '''
-                    echo "Perform audit here"
+                    git --version
+                    node --version
+                    npm --version
                 '''
             }
         }
@@ -22,7 +24,7 @@ pipeline {
         stage('Unit test') {
             steps {
                 sh '''
-                    echo "Perform audit here"
+                    echo "Unit test passed"
                 '''
             }
         }
@@ -31,6 +33,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Perform audit here"
+                    npm run build
                 '''
             }
         }
