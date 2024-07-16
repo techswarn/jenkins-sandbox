@@ -20,7 +20,7 @@ pipeline {
                 '''
             }
         }
-        
+
         stage('Checkout') {
             steps {
 
@@ -49,6 +49,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Perform audit here"
+                    npm install
                     npm run build
                 '''
             }
