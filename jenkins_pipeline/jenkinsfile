@@ -1,0 +1,57 @@
+pipeline {
+    agent any
+
+    parameters {
+        booleanParam( name: "RELEASE", defaultValue: false, description: "Is this a release canditate?" )
+    }
+
+    environment {
+        RELEASE_VERSION = "1.0.0"
+        INT_VERSION = "R2" 
+    }
+
+    stages {
+        stage('Audit Tools') {
+            steps {
+                sh ```
+                    echo "Perform audit here"
+                ```
+            }
+        }
+
+        stage('Unit test') {
+            steps {
+                sh ```
+                    echo "Perform audit here"
+                ```
+            }
+        }
+
+        stage('Perform build') {
+            steps {
+                sh ```
+                    echo "Perform audit here"
+                ```
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                sh ```
+                    echo "Perform audit here"
+                ```
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo "success"
+        }
+
+        failure {
+            echo "failure"
+        }
+    }
+}
