@@ -13,33 +13,33 @@ pipeline {
     stages {
         stage('Audit Tools') {
             steps {
-                sh ```
+                sh '''
                     echo "Perform audit here"
-                ```
+                '''
             }
         }
 
         stage('Unit test') {
             steps {
-                sh ```
+                sh '''
                     echo "Perform audit here"
-                ```
+                '''
             }
         }
 
         stage('Perform build') {
             steps {
-                sh ```
+                sh '''
                     echo "Perform audit here"
-                ```
+                '''
             }
         }
 
         stage('Publish') {
             steps {
-                sh ```
+                sh '''
                     echo "Perform audit here"
-                ```
+                '''
             }
         }
 
