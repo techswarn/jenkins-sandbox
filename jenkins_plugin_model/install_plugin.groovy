@@ -7,7 +7,7 @@ uc = Jenkins.instance.updateCenter
 pm.doCheckUpdatesServer()
 
 // List of PlugIn with Dependencies
-["github", "workflow-aggregator", "docker-build-publish", "npm-yarn-wrapper-steps", "pipeline-stage-view", "ws-cleanup"].each {
+["github", "workflow-aggregator", "docker-build-publish", "npm-yarn-wrapper-steps", "pipeline-stage-view", "ws-cleanup", "role-strategy"].each {
   if (! pm.getPlugin(it)) {
     deployment = uc.getPlugin(it).deploy(true)
     deployment.get()
